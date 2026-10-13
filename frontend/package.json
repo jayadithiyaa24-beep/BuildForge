@@ -1,0 +1,13 @@
+{
+  "name": "buildforge-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js"
+  },
+  "dependencies": {
+    "cytoscape": "^3.30.4"
+  }
+}

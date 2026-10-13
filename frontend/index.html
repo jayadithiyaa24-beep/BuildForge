@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildForge — PC Builder Ecosystem (Neo4j Graph Database DA3)</title>
+  <meta name="description" content="BuildForge DA3 is an academic property graph PC builder application utilizing Neo4j, Cypher, and Cytoscape.js for real-time hardware compatibility and marketplace price tracking.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%2232%22%20height=%2232%22><rect width=%2232%22 height=%2232%22 rx=%229%22 fill=%22%237A8B7B%22/><text x=%227%22 y=%2222%22 font-size=%2216%22 font-weight=%22bold%22 fill=%22white%22>BF</text></svg>">
+</head>
+<body>
+  <div class="app">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="logo">
+        <span class="logoMark">BF</span>
+        <span>BuildForge</span>
+      </div>
+
+      <nav>
+        <button class="nav active" data-page="home">Home</button>
+        <button class="nav" data-page="builder">PC Builder</button>
+        <button class="nav" data-page="parts">Components</button>
+        <button class="nav" data-page="compare">Compare</button>
+        <button class="nav" data-page="builds">My Builds</button>
+        <button class="nav" data-page="cart">Cart & Orders</button>
+        <button class="nav" data-page="graph">Graph Explorer</button>
+        <button class="nav" data-page="lab">DBMS Lab</button>
+        <button class="nav" data-page="about">About DB</button>
+      </nav>
+
+      <div class="headerRight">
+        <!-- Demo User Switcher -->
+        <select class="userSelect" id="userSwitcher" title="Switch Demo User in Neo4j">
+          <option value="usr-1">👤 aarav_sharma</option>
+          <option value="usr-2">👤 priya_patel</option>
+          <option value="usr-3">👤 rohan_verma</option>
+        </select>
+
+        <!-- Theme Toggle -->
+        <button class="iconBtn" id="themeBtn" title="Toggle Studio Light / Midnight Dark Theme">☼</button>
+
+        <!-- Cart Nav Button -->
+        <button class="iconBtn" id="cartNavBtn" title="View Active Cart">
+          🛒
+          <span class="cartBadge" id="cartBadgeCount" style="display:none;">0</span>
+        </button>
+
+        <!-- Header CTA -->
+        <button class="primary" onclick="window.app.navigate('builder')">Start Building</button>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Container -->
+    <main>
+      <section id="page-home" class="page active"></section>
+      <section id="page-builder" class="page"></section>
+      <section id="page-parts" class="page"></section>
+      <section id="page-compare" class="page"></section>
+      <section id="page-builds" class="page"></section>
+      <section id="page-cart" class="page"></section>
+      <section id="page-graph" class="page"></section>
+      <section id="page-lab" class="page"></section>
+      <section id="page-about" class="page"></section>
+    </main>
+  </div>
+
+  <!-- Reusable Modal Wrap -->
+  <div class="modalWrap" id="modalWrap">
+    <div class="modal">
+      <div class="modalHead">
+        <h2 id="modalTitle">Select Component</h2>
+        <button class="closeBtn" id="closeModalBtn">×</button>
+      </div>
+      <p class="muted" id="modalSub" style="margin-bottom:14px; font-size:13px;"></p>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Cytoscape Library (Local offline bundle with CDN fallback) -->
+  <script src="public/vendor/cytoscape.min.js" onerror="this.src='https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.4/cytoscape.min.js'"></script>
+
+  <!-- Main ES Module Application -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
